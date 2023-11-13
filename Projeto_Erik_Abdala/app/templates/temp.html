@@ -1,0 +1,20 @@
+{% load static %}
+{% block questionario %}
+{% for quest in questao %}
+<form name = "Formulario" action="{% url 'Enviar-Questionario' %}" method = "post">{% csrf_token %}
+    <h4>{{quest.titulo}}</h4>
+    <p>{{quest.enunciado}}</p>
+    <input type="radio" placeholder = "Questão1A" name = "Q1" value = "A">
+    <label for="Q1A">{{quest.alternativa_a}}</label>
+    <input type="radio" placeholder = "Questão1B" name = "Q1" value = "B">
+    <label for="Q1B">{{quest.alternativa_b}}</label>
+    <input type="radio" placeholder = "Questão1C" name = "Q1" value = "C">
+    <label for="Q1C">{{quest.alternativa_c}}</label>
+    <input type="radio" placeholder = "Questão1D" name = "Q1" value = "D">
+    <label for="Q1D">{{quest.alternativa_d}}</label>
+    <input type="radio" placeholder = "Questão1D" name = "Q1" value = "E">
+    <label for="Q1D">{{quest.alternativa_e}}</label>
+</form>
+{% endfor %}
+<input name = "Formulario" type="submit" id="" value="Enviar">
+{% endblock %}
